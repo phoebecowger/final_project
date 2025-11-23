@@ -40,7 +40,7 @@ function draw() {
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
-// functions that show/hide images
+// functions that shows desired image, and hides the others
 function showImage1() {
     isImage1Visible = true;
     isImage2Visible = false;
