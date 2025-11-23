@@ -19,6 +19,8 @@ function preload() {
 function setup() {
     createCanvas(700,700);
 
+    // get id's from HTML, wait for it to be clicked, when clicked, calls function, store in a variable(button of a sort)
+    // each button will call a different function that shows a different image
     const button1 = document.getElementById('button').addEventListener('click', showImage1);
     const button2 = document.getElementById('butt').addEventListener('click', showImage2);
 }
@@ -37,8 +39,9 @@ function draw() {
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
-function showImage1() {
 
+// functions that show/hide images
+function showImage1() {
     isImage1Visible = true;
     isImage2Visible = false;
 }
