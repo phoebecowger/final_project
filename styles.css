@@ -39,10 +39,25 @@ canvas {
 }
 
 #category-buttons {
-  height: 140px;
+  height: 100px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+
   background-color: yellow;
 }
 
+#category-buttons img {
+  border: black solid 2px;
+  border-radius: 4px;
+  background-color: white;
+}
+
+#category-buttons img:hover {
+  border: black solid 4px;
+}
 .eyes-category, .nose-category, .mouth-category, .head-category {
   height: calc(var(customization-panel-height) - var(category-buttons-height));
   background-color: maroon;
