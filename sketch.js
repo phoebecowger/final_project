@@ -1,3 +1,4 @@
+let defaultBody;
 
 let defaultEyes;
 
@@ -21,9 +22,6 @@ let isMouth2Visible = false;
 let isDefaultHeadVisible = true;
 let isHead2Visible = false;
 
-let isDefaultBodyVisible = true;
-let isDefaultArmsVisible = true;
-
 //////////////////////////////////////////////////////////////////////////////////
 
 let eyesCategorySelected = false;
@@ -43,6 +41,8 @@ const headCategory = document.getElementsByClassName('head-category')[0];
 ///////////////////////////////////////////////////////////////////////////////////////
 
 function preload() {
+    defaultBody = loadImage('images/default_body.png');
+
     defaultEyes = loadImage('images/eyes/default_eyes.png');
     eyes2 = loadImage('images/eyes/eyes_2.png');
 
@@ -67,10 +67,10 @@ function setup() {
     document.getElementById("mouth-button").addEventListener("click", showMouthCategory);
     document.getElementById("head-button").addEventListener("click", showHeadCategory);
 
-    eyeCategory.style.display = 'block';
+    eyeCategory.style.display = 'none';
     noseCategory.style.display = 'none';
     mouthCategory.style.display = 'none';
-    headCategory.style.display = 'block';   
+    headCategory.style.display = 'none';   
 
     // get id's from HTML, wait for it to be clicked, when clicked, calls function, store in a variable(button of a sort)
     // each button will call a different function that shows a different image
@@ -111,7 +111,8 @@ function showHideCategories() {
         noseCategory.style.display = 'none';
         mouthCategory.style.display = 'none';
         headCategory.style.display = 'block';   
-    } else {
+    } 
+    else {
         eyeCategory.style.display = 'none';
         headCategory.style.display = 'none'; 
         noseCategory.style.display = 'none';
@@ -158,6 +159,7 @@ function showHeadCategory() {
 function draw() {
     background(220);
     //order of layers: top to bottom in code = bottom to top in display
+    image(defaultBody, 0, 0, 450, 500);
 
     ///HEAD CHOICE DISPLAY///
     if (isDefaultHeadVisible) {
