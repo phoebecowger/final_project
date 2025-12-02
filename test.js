@@ -26,15 +26,16 @@ function preload() {
 ///////////////////////////////////////////////////////////////////////////////////////
 
 function setup() {
-    createCanvas(500,500);
+    createCanvas(450,500);
 
     // get id's from HTML, wait for it to be clicked, when clicked, calls function, store in a variable(button of a sort)
     // each button will call a different function that shows a different image
-    const button1 = document.getElementById('button').addEventListener('click', showImage1);
-    const button2 = document.getElementById('butt').addEventListener('click', showImage2);
+    document.getElementById('button').addEventListener('click', showImage1);
+    document.getElementById('butt').addEventListener('click', showImage2);
 
-    const categoryOne = document.getElementById("joe").addEventListener("click", showJoeCategory);
-    const categoryTwo = document.getElementById("mama").addEventListener("click", showMamaCategory);
+    
+    document.getElementById("joe").addEventListener("click", showJoeCategory);
+    document.getElementById("mama").addEventListener("click", showMamaCategory);
 
     joeCategory.style.display = 'none';
     mamaCategory.style.display = 'none';   

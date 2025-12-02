@@ -1,22 +1,50 @@
-canvas {
-  display: block;
-}
-
 body, main, header, footer {
   text-align: center;
 }
 
 header, main, footer {
-  margin: 0 auto;
-  padding: 2rem
+  margin: 0 10vw;
+  padding: 1rem 0;
+  background-color: lightgray;
 }
 
 body {
   width: 100%;
-
-
+  background: blue;
+  background-image: url("images/background.png");
 }
 
+/*********************************** HEADER STYLES ***********************************/
+
+header {
+  background-color: orange;
+}
+
+/*********************************** MAIN STYLES ***********************************/
 main {
   display: flex;
+  justify-content: space-evenly ;
+  background-color: blueviolet;
 }
+
+canvas {
+  display: block;
+}
+
+/* customization styles */
+
+#customization-panel {
+  width: 350px;
+  background-color: lightblue;
+}
+
+#category-buttons {
+  height: 140px;
+  background-color: yellow;
+}
+
+.eyes-category, .nose-category, .mouth-category, .head-category {
+  height: calc(var(customization-panel-height) - var(category-buttons-height));
+  background-color: maroon;
+}
+
