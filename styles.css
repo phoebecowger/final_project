@@ -89,6 +89,6 @@ canvas {
   width: 50%;
 }
 
-.eyes-category img:hover, .nose-category img:hover, .mouth-category img:hover, .head-category img:hover, .ears-category img:hover {
+.eyes-category img:hover, .nose-category img:hover, .mouth-category img:hover, .head-category img:hover, .ears-category img:hover{
   width: 55%;
 }

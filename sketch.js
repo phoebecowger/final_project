@@ -50,15 +50,14 @@ let isEars6Visible = false;
 let isEars7Visible = false;
 let isEars8Visible = false;
 
+
 //////////////////////////////////////////////////////////////////////////////////
 
 let eyesCategorySelected = false;
 let noseCategorySelected = false;
 let mouthCategorySelected = false;
 let headCategorySelected = false;
-let earsCategorySelected = false;
-showHideCategories();
-
+let earCategorySelected = false;
 
 // these variables store the div that holds each category's items 
 // is NOT the category button, but the all the items inside that category
@@ -67,7 +66,7 @@ const eyeCategory = document.getElementsByClassName('eyes-category')[0];
 const noseCategory = document.getElementsByClassName('nose-category')[0];
 const mouthCategory = document.getElementsByClassName('mouth-category')[0];
 const headCategory = document.getElementsByClassName('head-category')[0];
-const earsCategory = document.getElementsByClassName('ears-category'[0])
+const earsCategory = document.getElementsByClassName('ears-category')[0];
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
@@ -83,8 +82,8 @@ function preload() {
     eyes7 = loadImage('images/eyes/eyes_7_choices.png');
     eyes8 = loadImage('images/eyes/eyes_8_choices.png');
 
-    nose1 = loadImage('images/nose/nose_1_choices.png');
-    nose2 = loadImage('images/nose/nose_2_choices.png');
+    nose1 = loadImage('images/nose/nose_1.png');
+    nose2 = loadImage('images/nose/nose_2.png');
     nose3 = loadImage('images/nose/nose_3_choices.png');
     nose4 = loadImage('images/nose/nose_4_choices.png');
     nose5 = loadImage('images/nose/nose_5_choices.png');
@@ -92,8 +91,8 @@ function preload() {
     nose7 = loadImage('images/nose/nose_7_choices.png');
     nose8 = loadImage('images/nose/nose_8_choices.png');
 
-    mouth1 = loadImage('images/mouth/mouth_1_choices.png');
-    mouth2 = loadImage('images/mouth/mouth_2_choices.png');
+    mouth1 = loadImage('images/mouth/mouth_1.png');
+    mouth2 = loadImage('images/mouth/mouth_2.png');
     mouth3 = loadImage('images/mouth/mouth_3_choices.png');
     mouth4 = loadImage('images/mouth/mouth_4_choices.png');
     mouth5 = loadImage('images/mouth/mouth_5_choices.png');
@@ -103,12 +102,12 @@ function preload() {
 
     defaultHead = loadImage('images/head/default_head.png');
     head2 = loadImage('images/head/head_2.png');
-    head3 = loadImage('images/head/head_2.png');
-    head4 = loadImage('images/head/head_2.png');
-    head5 = loadImage('images/head/head_2.png');
-    head6 = loadImage('images/head/head_2.png');
-    head7 = loadImage('images/head/head_2.png');
-    head8 = loadImage('images/head/head_2.png');
+    head3 = loadImage('images/head/head_3_choices.png');
+    head4 = loadImage('images/head/head_4_choices.png');
+    head5 = loadImage('images/head/head_5_choices.png');
+    head6 = loadImage('images/head/head_6_choices.png');
+    head7 = loadImage('images/head/head_7_choices.png');
+    head8 = loadImage('images/head/head_8_choices.png');
 
     ears1 = loadImage('images/ears/ears_1_choices.png');
     ears2 = loadImage('images/ears/ears_2_choices.png');
@@ -135,8 +134,8 @@ function setup() {
     eyeCategory.style.display = 'none';
     noseCategory.style.display = 'none';
     mouthCategory.style.display = 'none';
-    headCategory.style.display = 'none';
-    earsCategory.style.display = 'none';    
+    headCategory.style.display = 'none'; 
+    earsCategory.style.display = 'none';   
 
     // get id's from HTML, wait for it to be clicked, when clicked, calls function, store in a variable(button of a sort)
     // each button will call a different function that shows a different image
@@ -175,6 +174,16 @@ function setup() {
     document.getElementById('head-6').addEventListener('click', showHead6);
     document.getElementById('head-7').addEventListener('click', showHead7);
     document.getElementById('head-8').addEventListener('click', showHead8);
+
+    document.getElementById('ears-1').addEventListener('click', showEars1);
+    document.getElementById('ears-2').addEventListener('click', showEars2);
+    document.getElementById('ears-3').addEventListener('click', showEars3);
+    document.getElementById('ears-4').addEventListener('click', showEars4);
+    document.getElementById('ears-5').addEventListener('click', showEars5);
+    document.getElementById('ears-6').addEventListener('click', showEars6);
+    document.getElementById('ears-7').addEventListener('click', showEars7);
+    document.getElementById('ears-8').addEventListener('click', showEars8);
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -192,7 +201,7 @@ function showHideCategories() {
         noseCategory.style.display = 'grid';
         mouthCategory.style.display = 'none';
         headCategory.style.display = 'none'; 
-        earsCategory.style.display = 'none'; 
+        earsCategory.style.display = 'none';
     } else if (mouthCategorySelected) {
         eyeCategory.style.display = 'none';
         noseCategory.style.display = 'none';
@@ -204,14 +213,14 @@ function showHideCategories() {
         noseCategory.style.display = 'none';
         mouthCategory.style.display = 'none';
         headCategory.style.display = 'grid'; 
-        earsCategory.style.display = 'none';  
-    }  else if (earsCategorySelected) {
+        earsCategory.style.display = 'none';
+    } else if (earsCategorySelected) {
         eyeCategory.style.display = 'none';
         noseCategory.style.display = 'none';
         mouthCategory.style.display = 'none';
         headCategory.style.display = 'none'; 
-        earsCategory.style.display = 'grid'; 
-    } else {
+        earsCategory.style.display = 'grid';
+    }else {
         eyeCategory.style.display = 'none';
         headCategory.style.display = 'none'; 
         noseCategory.style.display = 'none';
@@ -265,7 +274,7 @@ function showEarsCategory() {
     headCategorySelected = false;
     earsCategorySelected = true;
     showHideCategories();
-}
+}   
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
@@ -275,7 +284,7 @@ function draw() {
     image(defaultBody, 0, 0, 450, 500);
 
     ///EARS CHOICE DISPLAY///
-    if (isDefaultEarsVisible) {
+    if (isEars1Visible) {
         image(ears1, 0, 0, 450, 500);
     }
     else if (isEars2Visible) {
@@ -293,7 +302,7 @@ function draw() {
     else if (isEars6Visible) {
         image(ears6, 0, 0, 450, 500);
     }
-    else if (isEyes7Visible) {
+    else if (isEars7Visible) {
         image(ears7, 0, 0, 450, 500);
     }
     else if (isEars8Visible) {
@@ -635,13 +644,13 @@ function showMouth6() {
 }
 function showMouth7() {
     isMouth1Visible = false;
-    isMouthVisible = false;
-    isMouthVisible = false;
-    isMouthVisible = false;
-    isMouthVisible = false;
-    isMouthVisible = false;
-    isMouthVisible = true;
-    isMouthVisible = false;
+    isMouth2Visible = false;
+    isMouth3Visible = false;
+    isMouth4Visible = false;
+    isMouth5Visible = false;
+    isMouth6Visible = false;
+    isMouth7Visible = true;
+    isMouth8Visible = false;
 }
 function showMouth8() {
     isMouth1Visible = false;
@@ -738,7 +747,7 @@ function showHead8() {
 }
 
 ///EARS///
-function showEar1s() {
+function showEars1() {
     isEars1Visible = true;
     isEars2Visible = false;
     isEars3Visible = false;
@@ -800,13 +809,13 @@ function showEars6() {
 }
 function showEars7() {
     isEars1Visible = false;
-    isEarsVisible = false;
-    isEarsVisible = false;
-    isEarsVisible = false;
-    isEarsVisible = false;
-    isEarsVisible = false;
-    isEarsVisible = true;
-    isEarsVisible = false;
+    isEars2Visible = false;
+    isEars3Visible = false;
+    isEars4Visible = false;
+    isEars5Visible = false;
+    isEars6Visible = false;
+    isEars7Visible = true;
+    isEars8Visible = false;
 }
 function showEars8() {
     isEars1Visible = false;
@@ -818,4 +827,3 @@ function showEars8() {
     isEars7Visible = false;
     isEars8Visible = true;
 }
-   
