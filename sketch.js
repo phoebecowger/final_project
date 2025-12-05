@@ -493,7 +493,10 @@ function draw() {
     }
 
     ///BOTTOM CHOICE DISPLAY///
-    if (isBottom2Visible) {
+    if (isBottom1Visible) {
+        image(bottom1, 0, 0, 450, 500);
+    }
+    else if (isBottom2Visible) {
         image(bottom2, 0, 0, 450, 500);
     }
     else if (isBottom3Visible) {
