@@ -50,6 +50,32 @@ let isEars6Visible = false;
 let isEars7Visible = false;
 let isEars8Visible = false;
 
+let isTop1Visible = false;
+let isTop2Visible = false;
+let isTop3Visible = false;
+let isTop4Visible = false;
+let isTop5Visible = false;
+let isTop6Visible = false;
+let isTop7Visible = false;
+let isTop8Visible = false;
+
+let isBottom1Visible = false;
+let isBottom2Visible = false;
+let isBottom3Visible = false;
+let isBottom4Visible = false;
+let isBottom5Visible = false;
+let isBottom6Visible = false;
+let isBottom7Visible = false;
+let isBottom8Visible = false;
+
+let isShoes1Visible = false;
+let isShoes2Visible = false;
+let isShoes3Visible = false;
+let isShoes4Visible = false;
+let isShoes5Visible = false;
+let isShoes6Visible = false;
+let isShoes7Visible = false;
+let isShoes8Visible = false;
 
 //////////////////////////////////////////////////////////////////////////////////
 
@@ -58,6 +84,9 @@ let noseCategorySelected = false;
 let mouthCategorySelected = false;
 let headCategorySelected = false;
 let earCategorySelected = false;
+let topCategorySelected = false;
+let bottomCategorySelected = false;
+let shoesCategorySelected = false;
 
 // these variables store the div that holds each category's items 
 // is NOT the category button, but the all the items inside that category
@@ -67,6 +96,9 @@ const noseCategory = document.getElementsByClassName('nose-category')[0];
 const mouthCategory = document.getElementsByClassName('mouth-category')[0];
 const headCategory = document.getElementsByClassName('head-category')[0];
 const earsCategory = document.getElementsByClassName('ears-category')[0];
+const topCategory = document.getElementsByClassName('top-category')[0];
+const bottomCategory = document.getElementsByClassName('bottom-category')[0];
+const shoeCategory = document.getElementsByClassName('shoe-category')[0]; 
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
@@ -117,6 +149,34 @@ function preload() {
     ears6 = loadImage('images/ears/ears_6_choices.png');
     ears7 = loadImage('images/ears/ears_7_choices.png');
     ears8 = loadImage('images/ears/ears_8_choices.png');
+
+    top1 = loadImage('images/top/top_1_choices.png');
+    top2 = loadImage('images/top/top_2_choices.png');
+    top3 = loadImage('images/top/top_3_choices.png');
+    top4 = loadImage('images/top/top_4_choices.png');
+    top5 = loadImage('images/top/top_5_choices.png');
+    top6 = loadImage('images/top/top_6_choices.png');
+    top7 = loadImage('images/top/top_7_choices.png');
+    top8 = loadImage('images/top/top_8_choices.png');
+
+    bottom1 = loadImage('images/bottom/bottom_1_choices.png');
+    bottom2 = loadImage('images/bottom/bottom_2_choices.png');
+    bottom3 = loadImage('images/bottom/bottom_3_choices.png');
+    bottom4 = loadImage('images/bottom/bottom_4_choices.png');
+    bottom5 = loadImage('images/bottom/bottom_5_choices.png');
+    bottom6 = loadImage('images/bottom/bottom_6_choices.png');
+    bottom7 = loadImage('images/bottom/bottom_7_choices.png');
+    bottom8 = loadImage('images/bottom/bottom_8_choices.png');
+
+    shoe1 = loadImage('images/shoes/shoe_1_choices.png');
+    shoe2 = loadImage('images/shoes/shoe_2_choices.png');
+    shoe3 = loadImage('images/shoes/shoe_3_choices.png');
+    shoe4 = loadImage('images/shoes/shoe_4_choices.png');
+    shoe5 = loadImage('images/shoes/shoe_5_choices.png');
+    shoe6 = loadImage('images/shoes/shoe_6_choices.png');
+    shoe7 = loadImage('images/shoes/shoe_7_choices.png');
+    shoe8 = loadImage('images/shoes/shoe_8_choices.png');
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -130,12 +190,18 @@ function setup() {
     document.getElementById("mouth-button").addEventListener("click", showMouthCategory);
     document.getElementById("head-button").addEventListener("click", showHeadCategory);
     document.getElementById("ears-button").addEventListener("click", showEarsCategory);
+    document.getElementById("shirt-button").addEventListener("click", showTopCategory);
+    document.getElementById("pants-button").addEventListener("click", showBottomCategory);
+    document.getElementById("shoe-button").addEventListener("click", showShoeCategory);
 
     eyeCategory.style.display = 'none';
     noseCategory.style.display = 'none';
     mouthCategory.style.display = 'none';
     headCategory.style.display = 'none'; 
     earsCategory.style.display = 'none';   
+    topCategory.style.display = 'none';
+    bottomCategory.style.display = 'none';
+    shoeCategory.style.display = 'none';
 
     // get id's from HTML, wait for it to be clicked, when clicked, calls function, store in a variable(button of a sort)
     // each button will call a different function that shows a different image
@@ -184,6 +250,33 @@ function setup() {
     document.getElementById('ears-7').addEventListener('click', showEars7);
     document.getElementById('ears-8').addEventListener('click', showEars8);
 
+    document.getElementById('top-1').addEventListener('click', showTop1);
+    document.getElementById('top-2').addEventListener('click', showTop2);
+    document.getElementById('top-3').addEventListener('click', showTop3);
+    document.getElementById('top-4').addEventListener('click', showTop4);
+    document.getElementById('top-5').addEventListener('click', showTop5);
+    document.getElementById('top-6').addEventListener('click', showTop6);
+    document.getElementById('top-7').addEventListener('click', showTop7);
+    document.getElementById('top-8').addEventListener('click', showTop8);
+
+    document.getElementById('bottom-1').addEventListener('click', showBottom1);
+    document.getElementById('bottom-2').addEventListener('click', showBottom2);
+    document.getElementById('bottom-3').addEventListener('click', showBottom3);
+    document.getElementById('bottom-4').addEventListener('click', showBottom4);
+    document.getElementById('bottom-5').addEventListener('click', showBottom5);
+    document.getElementById('bottom-6').addEventListener('click', showBottom6);
+    document.getElementById('bottom-7').addEventListener('click', showBottom7);
+    document.getElementById('bottom-8').addEventListener('click', showBottom8);
+
+    document.getElementById('shoe-1').addEventListener('click', showShoe1);
+    document.getElementById('shoe-2').addEventListener('click', showShoe2);
+    document.getElementById('shoe-3').addEventListener('click', showShoe3);
+    document.getElementById('shoe-4').addEventListener('click', showShoe4);
+    document.getElementById('shoe-5').addEventListener('click', showShoe5);
+    document.getElementById('shoe-6').addEventListener('click', showShoe6);
+    document.getElementById('shoe-7').addEventListener('click', showShoe7);
+    document.getElementById('shoe-8').addEventListener('click', showShoe8);
+
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -196,36 +289,81 @@ function showHideCategories() {
         mouthCategory.style.display = 'none';
         headCategory.style.display = 'none';
         earsCategory.style.display = 'none';
+        topCategory.style.display = 'none';
+        bottomCategory.style.display = 'none';
+        shoeCategory.style.display = 'none';
     } else if (noseCategorySelected) {
         eyeCategory.style.display = 'none';
         noseCategory.style.display = 'grid';
         mouthCategory.style.display = 'none';
         headCategory.style.display = 'none'; 
         earsCategory.style.display = 'none';
+        topCategory.style.display = 'none';
+        bottomCategory.style.display = 'none';
+        shoeCategory.style.display = 'none';
     } else if (mouthCategorySelected) {
         eyeCategory.style.display = 'none';
         noseCategory.style.display = 'none';
         mouthCategory.style.display = 'grid';
         headCategory.style.display = 'none'; 
         earsCategory.style.display = 'none'; 
+        topCategory.style.display = 'none';
+        bottomCategory.style.display = 'none';
+        shoeCategory.style.display = 'none';
     } else if (headCategorySelected) {
         eyeCategory.style.display = 'none';
         noseCategory.style.display = 'none';
         mouthCategory.style.display = 'none';
         headCategory.style.display = 'grid'; 
         earsCategory.style.display = 'none';
+        topCategory.style.display = 'none';
+        bottomCategory.style.display = 'none';
+        shoeCategory.style.display = 'none';
     } else if (earsCategorySelected) {
         eyeCategory.style.display = 'none';
         noseCategory.style.display = 'none';
         mouthCategory.style.display = 'none';
         headCategory.style.display = 'none'; 
         earsCategory.style.display = 'grid';
-    }else {
+        topCategory.style.display = 'none';
+        bottomCategory.style.display = 'none';
+        shoeCategory.style.display = 'none';
+    } else if (topCategorySelected) {
+        eyeCategory.style.display = 'none';
+        noseCategory.style.display = 'none';
+        mouthCategory.style.display = 'none';
+        headCategory.style.display = 'none'; 
+        earsCategory.style.display = 'none';
+        topCategory.style.display = 'grid';
+        bottomCategory.style.display = 'none';
+        shoeCategory.style.display = 'none';
+    } else if (bottomCategorySelected) {    
+        eyeCategory.style.display = 'none';
+        noseCategory.style.display = 'none';
+        mouthCategory.style.display = 'none';
+        headCategory.style.display = 'none'; 
+        earsCategory.style.display = 'none';
+        topCategory.style.display = 'none';
+        bottomCategory.style.display = 'grid';
+        shoeCategory.style.display = 'none';
+    } else if (shoeCategorySelected) {    
+        eyeCategory.style.display = 'none';
+        noseCategory.style.display = 'none';
+        mouthCategory.style.display = 'none';
+        headCategory.style.display = 'none'; 
+        earsCategory.style.display = 'none';
+        topCategory.style.display = 'none';
+        bottomCategory.style.display = 'none';
+        shoeCategory.style.display = 'grid';
+    } else {
         eyeCategory.style.display = 'none';
         headCategory.style.display = 'none'; 
         noseCategory.style.display = 'none';
         mouthCategory.style.display = 'none'; 
         earsCategory.style.display = 'none';
+        topCategory.style.display = 'none';
+        bottomCategory.style.display = 'none';
+        shoeCategory.style.display = 'none';
     }
 }
 
@@ -237,6 +375,9 @@ function showEyesCategory() {
     mouthCategorySelected = false;
     headCategorySelected = false;
     earsCategorySelected = false;
+    topCategorySelected = false;
+    bottomCategorySelected = false;
+    shoeCategorySelected = false;
     showHideCategories();
 }
 
@@ -246,6 +387,9 @@ function showNoseCategory() {
     mouthCategorySelected = false;
     headCategorySelected = false;
     earsCategorySelected = false;
+    topCategorySelected = false;
+    bottomCategorySelected = false;
+    shoeCategorySelected = false;
     showHideCategories();
 }
 
@@ -255,6 +399,9 @@ function showMouthCategory() {
     mouthCategorySelected = true;
     headCategorySelected = false;
     earsCategorySelected = false;
+    topCategorySelected = false;
+    bottomCategorySelected = false;
+    shoeCategorySelected = false;
     showHideCategories();
 }
 
@@ -264,6 +411,9 @@ function showHeadCategory() {
     mouthCategorySelected = false;
     headCategorySelected = true;
     earsCategorySelected = false;
+    topCategorySelected = false;
+    bottomCategorySelected = false;
+    shoeCategorySelected = false;
     showHideCategories();
 }
 
@@ -273,8 +423,48 @@ function showEarsCategory() {
     mouthCategorySelected = false;
     headCategorySelected = false;
     earsCategorySelected = true;
+    topCategorySelected = false;
+    bottomCategorySelected = false;
+    shoeCategorySelected = false;
     showHideCategories();
 }   
+
+function showTopCategory() {
+    eyesCategorySelected = false;
+    noseCategorySelected = false;
+    mouthCategorySelected = false;
+    headCategorySelected = false;
+    earsCategorySelected = false;
+    topCategorySelected = true;
+    bottomCategorySelected = false;
+    shoeCategorySelected = false;
+    showHideCategories();
+}   
+
+function showBottomCategory() { 
+    eyesCategorySelected = false;
+    noseCategorySelected = false;
+    mouthCategorySelected = false;
+    headCategorySelected = false;
+    earsCategorySelected = false;
+    topCategorySelected = false;
+    bottomCategorySelected = true;
+    shoeCategorySelected = false;
+    showHideCategories();
+}
+
+function showShoeCategory() {
+    eyesCategorySelected = false;
+    noseCategorySelected = false;
+    mouthCategorySelected = false;
+    headCategorySelected = false;
+    earsCategorySelected = false;
+    topCategorySelected = false;
+    bottomCategorySelected = false;
+    shoeCategorySelected = true;
+    showHideCategories();
+}
+
 
 ///////////////////////////////////////////////////////////////////////////////////////
 
@@ -282,6 +472,81 @@ function draw() {
     background(220);
     //order of layers: top to bottom in code = bottom to top in display
     image(defaultBody, 0, 0, 450, 500);
+
+    //SHOES CHOICE DISPLAY///
+    if (isShoes1Visible) {
+        image(shoe1, 0, 0, 450, 500);
+    }
+    else if (isShoes2Visible) {
+        image(shoe2, 0, 0, 450, 500);
+    }
+    else if (isShoes3Visible) {
+        image(shoe3, 0, 0, 450, 500);
+    }
+    else if (isShoes4Visible) {
+        image(shoe4, 0, 0, 450, 500);
+    }
+    else if (isShoes5Visible) {
+        image(shoe5, 0, 0, 450, 500);
+    }
+    else if (isShoes6Visible) {
+        image(shoe6, 0, 0, 450, 500);
+    }
+    else if (isShoes7Visible) {
+        image(shoe7, 0, 0, 450, 500);
+    }
+    else if (isShoes8Visible) {
+        image(shoe8, 0, 0, 450, 500);
+    }
+
+    ///BOTTOM CHOICE DISPLAY///
+    if (isBottom2Visible) {
+        image(bottom2, 0, 0, 450, 500);
+    }
+    else if (isBottom3Visible) {
+        image(bottom3, 0, 0, 450, 500);
+    }
+    else if (isBottom4Visible) {
+        image(bottom4, 0, 0, 450, 500);
+    }
+    else if (isBottom5Visible) {
+        image(bottom5, 0, 0, 450, 500);
+    }
+    else if (isBottom6Visible) {
+        image(bottom6, 0, 0, 450, 500);
+    }
+    else if (isBottom7Visible) {
+        image(bottom7, 0, 0, 450, 500);
+    }
+    else if (isBottom8Visible) {
+        image(bottom8, 0, 0, 450, 500);
+    }
+
+    ///TOP CHOICE DISPLAY///
+    if (isTop1Visible) {    
+        image(top1, 0, 0, 450, 500);
+    }
+    else if (isTop2Visible) {
+        image(top2, 0, 0, 450, 500);
+    }
+    else if (isTop3Visible) {
+        image(top3, 0, 0, 450, 500);
+    }
+    else if (isTop4Visible) {
+        image(top4, 0, 0, 450, 500);
+    }
+    else if (isTop5Visible) {
+        image(top5, 0, 0, 450, 500);
+    }
+    else if (isTop6Visible) {
+        image(top6, 0, 0, 450, 500);
+    }
+    else if (isTop7Visible) {
+        image(top7, 0, 0, 450, 500);
+    }
+    else if (isTop8Visible) {
+        image(top8, 0, 0, 450, 500);
+    }
 
     ///EARS CHOICE DISPLAY///
     if (isEars1Visible) {
@@ -826,4 +1091,247 @@ function showEars8() {
     isEars6Visible = false;
     isEars7Visible = false;
     isEars8Visible = true;
+}
+
+function showTop1() {
+    isTop1Visible = true;
+    isTop2Visible = false;
+    isTop3Visible = false;
+    isTop4Visible = false;
+    isTop5Visible = false;
+    isTop6Visible = false;
+    isTop7Visible = false;
+    isTop8Visible = false;
+}   
+function showTop2() {
+    isTop1Visible = false;
+    isTop2Visible = true;
+    isTop3Visible = false;
+    isTop4Visible = false;
+    isTop5Visible = false;
+    isTop6Visible = false;
+    isTop7Visible = false;
+    isTop8Visible = false;
+}   
+function showTop3() {
+    isTop1Visible = false;
+    isTop2Visible = false;
+    isTop3Visible = true;
+    isTop4Visible = false;
+    isTop5Visible = false;
+    isTop6Visible = false;
+    isTop7Visible = false;
+    isTop8Visible = false;
+}
+function showTop4() {
+    isTop1Visible = false;
+    isTop2Visible = false;
+    isTop3Visible = false;
+    isTop4Visible = true;
+    isTop5Visible = false;
+    isTop6Visible = false;
+    isTop7Visible = false;
+    isTop8Visible = false;
+}
+function showTop5() {
+    isTop1Visible = false;
+    isTop2Visible = false;
+    isTop3Visible = false;
+    isTop4Visible = false;
+    isTop5Visible = true;
+    isTop6Visible = false;
+    isTop7Visible = false;
+    isTop8Visible = false;
+}
+function showTop6() {
+    isTop1Visible = false;
+    isTop2Visible = false;
+    isTop3Visible = false;
+    isTop4Visible = false;
+    isTop5Visible = false;
+    isTop6Visible = true;
+    isTop7Visible = false;
+    isTop8Visible = false;
+}
+function showTop7() {
+    isTop1Visible = false;
+    isTop2Visible = false;
+    isTop3Visible = false;
+    isTop4Visible = false;
+    isTop5Visible = false;
+    isTop6Visible = false;
+    isTop7Visible = true;
+    isTop8Visible = false;
+}
+function showTop8() {
+    isTop1Visible = false;
+    isTop2Visible = false;
+    isTop3Visible = false;
+    isTop4Visible = false;
+    isTop5Visible = false;
+    isTop6Visible = false;
+    isTop7Visible = false;
+    isTop8Visible = true;
+}
+
+function showBottom1() {
+    isBottom1Visible = true;
+    isBottom2Visible = false;
+    isBottom3Visible = false;
+    isBottom4Visible = false;
+    isBottom5Visible = false;
+    isBottom6Visible = false;
+    isBottom7Visible = false;
+    isBottom8Visible = false;
+}
+function showBottom2() {
+    isBottom1Visible = false;
+    isBottom2Visible = true;
+    isBottom3Visible = false;
+    isBottom4Visible = false;
+    isBottom5Visible = false;
+    isBottom6Visible = false;
+    isBottom7Visible = false;
+    isBottom8Visible = false;
+}
+function showBottom3() {
+    isBottom1Visible = false;
+    isBottom2Visible = false;
+    isBottom3Visible = true;
+    isBottom4Visible = false;
+    isBottom5Visible = false;
+    isBottom6Visible = false;
+    isBottom7Visible = false;
+    isBottom8Visible = false;
+}
+function showBottom4() {
+    isBottom1Visible = false;
+    isBottom2Visible = false;
+    isBottom3Visible = false;
+    isBottom4Visible = true;
+    isBottom5Visible = false;
+    isBottom6Visible = false;
+    isBottom7Visible = false;
+    isBottom8Visible = false;
+}
+function showBottom5() {
+    isBottom1Visible = false;
+    isBottom2Visible = false;
+    isBottom3Visible = false;
+    isBottom4Visible = false;
+    isBottom5Visible = true;
+    isBottom6Visible = false;
+    isBottom7Visible = false;
+    isBottom8Visible = false;
+}
+function showBottom6() {
+    isBottom1Visible = false;
+    isBottom2Visible = false;
+    isBottom3Visible = false;
+    isBottom4Visible = false;
+    isBottom5Visible = false;
+    isBottom6Visible = true;
+    isBottom7Visible = false;
+    isBottom8Visible = false;
+}
+function showBottom7() {
+    isBottom1Visible = false;
+    isBottom2Visible = false;
+    isBottom3Visible = false;
+    isBottom4Visible = false;
+    isBottom5Visible = false;
+    isBottom6Visible = false;
+    isBottom7Visible = true;
+    isBottom8Visible = false;
+}
+function showBottom8() {
+    isBottom1Visible = false;
+    isBottom2Visible = false;
+    isBottom3Visible = false;
+    isBottom4Visible = false;
+    isBottom5Visible = false;
+    isBottom6Visible = false;
+    isBottom7Visible = false;
+    isBottom8Visible = true;
+}
+
+function showShoe1() {
+    isShoes1Visible = true;
+    isShoes2Visible = false;
+    isShoes3Visible = false;
+    isShoes4Visible = false;
+    isShoes5Visible = false;
+    isShoes6Visible = false;
+    isShoes7Visible = false;
+    isShoes8Visible = false;
+}
+function showShoe2() {
+    isShoes1Visible = false;
+    isShoes2Visible = true;
+    isShoes3Visible = false;
+    isShoes4Visible = false;
+    isShoes5Visible = false;
+    isShoes6Visible = false;
+    isShoes7Visible = false;
+    isShoes8Visible = false;
+}
+function showShoe3() {
+    isShoes1Visible = false;
+    isShoes2Visible = false;
+    isShoes3Visible = true;
+    isShoes4Visible = false;
+    isShoes5Visible = false;
+    isShoes6Visible = false;
+    isShoes7Visible = false;
+    isShoes8Visible = false;
+}
+function showShoe4() {
+    isShoes1Visible = false;
+    isShoes2Visible = false;
+    isShoes3Visible = false;
+    isShoes4Visible = true;
+    isShoes5Visible = false;
+    isShoes6Visible = false;
+    isShoes7Visible = false;
+    isShoes8Visible = false;
+}
+function showShoe5() {
+    isShoes1Visible = false;
+    isShoes2Visible = false;
+    isShoes3Visible = false;
+    isShoes4Visible = false;
+    isShoes5Visible = true;
+    isShoes6Visible = false;
+    isShoes7Visible = false;
+    isShoes8Visible = false;
+}
+function showShoe6() {
+    isShoes1Visible = false;
+    isShoes2Visible = false;
+    isShoes3Visible = false;
+    isShoes4Visible = false;
+    isShoes5Visible = false;
+    isShoes6Visible = true;
+    isShoes7Visible = false;
+    isShoes8Visible = false;
+}
+function showShoe7() {
+    isShoes1Visible = false;
+    isShoes2Visible = false;
+    isShoes3Visible = false;
+    isShoes4Visible = false;
+    isShoes5Visible = false;
+    isShoes6Visible = false;
+    isShoes7Visible = true;
+    isShoes8Visible = false;
+}
+function showShoe8() {
+    isShoes1Visible = false;
+    isShoes2Visible = false;
+    isShoes3Visible = false;
+    isShoes4Visible = false;
+    isShoes5Visible = false;
+    isShoes6Visible = false;
+    isShoes7Visible = false;
+    isShoes8Visible = true;
 }
