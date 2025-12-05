@@ -1,3 +1,10 @@
+:root {
+  --note-blue: RGB(132, 149, 208);
+  --note-medblue: RGB(181, 191, 224);
+  --note-ltblue: RGB(230, 232, 240);
+  --note-red: RGB(208, 132, 132);
+}
+
 body, main, header, footer {
   text-align: center;
 }
@@ -5,13 +12,14 @@ body, main, header, footer {
 header, main, footer {
   margin: 0 10vw;
   padding: 1rem 0;
-  background-color: lightgray;
+  background-color: var(--note-ltblue);
 }
 
 body {
   width: 100%;
-  background: blue;
-  background-image: url("images/background.png");
+  height: 100vh;
+  background-image: url("images/paper.png");
+  background-size: cover;
 }
 
 /*********************************** HEADER STYLES ***********************************/
@@ -19,10 +27,16 @@ body {
 header {
   height: 80px;
   align-items: center;
- font-family: "tomarik-extrovert", sans-serif;
+
+  font-family: "tomarik-extrovert", sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 1.5rem;
+
+  border-radius: 10px 10px 0 0;
+  padding-bottom: 20px;
+  border-bottom: solid 2px var(--note-red);
+
 }
 
 h1 {
@@ -34,7 +48,9 @@ h1 {
 main {
   display: flex;
   justify-content: space-evenly ;
-  background-color: blueviolet;
+
+  padding-top: 50px;
+  padding-bottom: 30px;
 }
 
 canvas {
@@ -47,6 +63,13 @@ canvas {
   width: 352px;
 }
 
+#empty-space {
+  height: 400px;
+  width: 352px;
+  background-color: var(--note-medblue);
+  border-radius: 5px;
+}
+
 #category-buttons {
   height: 100px;
 
@@ -55,33 +78,37 @@ canvas {
   grid-template-rows: 50px 50px;
   justify-items: center;
   align-items: center;
+
+  padding-bottom: 20px;
 }
 
 #category-buttons img {
   width: 50%;
   box-sizing: border-box;
+  border: dashed 2px var(--note-medblue);
   border-radius: 4px;
 
-  background-color: white;
+  background-color: var(--note-ltblue);
 
 }
 
 #category-buttons img:hover {
   width: 55%;
+  border: solid 2px var(--note-medblue);
 }
 
 .eyes-category, .nose-category, .mouth-category, .head-category, .ears-category, .top-category, .bottom-category, .shoe-category {
   height: 400px;
-  width: 350px;
+  width: 352px;
   
   display: grid;
   grid-template-columns: 175px 175px;
-  grid-template-rows: 88px 88px 88px 88px;
+  grid-template-rows: 100px 100px 100px 100px;
   justify-items: center;
 
   border-radius: 5px;
 
-  background-color: papayawhip;
+  background-color: var(--note-medblue);
 
 }
 
@@ -91,4 +118,20 @@ canvas {
 
 .eyes-category img:hover, .nose-category img:hover, .mouth-category img:hover, .head-category img:hover, .ears-category img:hover, .top-category img:hover, .bottom-category img:hover, .shoe-category img:hover {
   width: 55%;
+  border: dashed 2px var(--note-red);
+  border-radius: 20%;
+}
+
+footer {
+  height: 50px;
+  align-content: center;
+
+  font-family: "tomarik-extrovert", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
+
+  border-radius: 0 0 10px 10px;
+  padding-top: 20px;
+  border-top: solid 2px var(--note-red);
 }

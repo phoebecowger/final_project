@@ -1,10 +1,3 @@
-let defaultBody;
-
-let defaultEyes;
-
-let defaultHead;
-
-/////////////////////////////////////////////////////////////////////////////////
 
 let isDefaultEyesVisible = true;
 let isEyes2Visible = false;
@@ -469,7 +462,7 @@ function showShoeCategory() {
 ///////////////////////////////////////////////////////////////////////////////////////
 
 function draw() {
-    background(220);
+    background(230, 232, 240);
     //order of layers: top to bottom in code = bottom to top in display
     image(defaultBody, 0, 0, 450, 500);
 
